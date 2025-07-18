@@ -3,8 +3,6 @@ name: Build & Push Backend Image
 on:
   push:
     branches: [main]
-    paths:
-      - "backend/**"
 
 jobs:
   build-and-push:
