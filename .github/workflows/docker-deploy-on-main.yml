@@ -31,7 +31,8 @@ jobs:
         with:
           context: apps/api
           file: apps/api/Dockerfile
-          push: false
+          push: false}
+          load: true
           tags: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
