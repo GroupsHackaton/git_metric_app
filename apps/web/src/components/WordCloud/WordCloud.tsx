@@ -27,7 +27,6 @@ export default function WordCloud() {
 				scale: "log",
 				fontSizes: [10, 60],
 				colors: ["#4A90E2", "#50E3C2", "#F5A623", "#D0021B"],
-				rotations: 2,
 			}}
 		/>
 	)
