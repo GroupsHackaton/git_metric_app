@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useForm, Controller } from "react-hook-form"
 import { addDays, format } from "date-fns"
 import DatePicker from "../DatePicker/DatePicker"
+import { useDateContext } from "../../contexts/dateContext"
 
 interface FormValues {
 	startDate?: Date
@@ -13,6 +14,8 @@ export default function DateForm() {
 		defaultValues: { startDate: undefined, endDate: undefined },
 	})
 
+	const dateContext = useDateContext()
+
 	const [startOpen, setStartOpen] = useState(false)
 	const [endOpen, setEndOpen] = useState(false)
 
@@ -22,13 +25,12 @@ export default function DateForm() {
 	useEffect(() => {
 		if (startDate && endDate) {
 			if (startDate > endDate) return
-			const payload = {
-				start: format(startDate, "yyyy-MM-dd"),
-				end: format(endDate, "yyyy-MM-dd"),
-			}
-			console.log("Auto-submitted:", payload)
+			dateContext.setDates(
+				startDate ? format(startDate, "yyyy-MM-dd") : "",
+				endDate ? format(endDate, "yyyy-MM-dd") : ""
+			)
 		}
-	}, [startDate, endDate])
+	}, [startDate, endDate, dateContext])
 
 	return (
 		<div className="w-full flex gap-4 items-center justify-center md:flex-row flex-col">

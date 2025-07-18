@@ -1,14 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import { Chart } from "../../src/components/Chart/Chart";
-import DateForm from "../../src/components/DateForm/DateForm";
-import Table from "../../src/components/Table/Table";
-import { DarkModeToggle } from "../../src/components/ui/darkModeToggle/DarkModeToggle";
-import ReactWordcloud from "react-wordcloud";
-import { getWordFrequencyCommitsWordFrequencyGetOptions } from "../../src/client/@tanstack/react-query.gen";
+import { useQuery } from "@tanstack/react-query"
+import { Chart } from "../../src/components/Chart/Chart"
+import DateForm from "../../src/components/DateForm/DateForm"
+import Table from "../../src/components/Table/Table"
+import { DarkModeToggle } from "../../src/components/ui/darkModeToggle/DarkModeToggle"
+import { getWordFrequencyCommitsWordFrequencyGetOptions } from "../../src/client/@tanstack/react-query.gen"
 export default function Home() {
-	const { data } = useQuery(getWordFrequencyCommitsWordFrequencyGetOptions());
+	const { data } = useQuery(getWordFrequencyCommitsWordFrequencyGetOptions())
 
-	console.log(data);
+	console.log(data)
 	return (
 		<>
 			<header className="flex items-center justify-between p-4">
@@ -31,5 +30,5 @@ export default function Home() {
 				</div>
 			</div>
 		</>
-	);
+	)
 }
