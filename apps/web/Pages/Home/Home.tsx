@@ -1,9 +1,11 @@
-import { Chart } from "../../src/components/Chart/Chart"
-import DateForm from "../../src/components/DateForm/DateForm"
-import Table from "../../src/components/Table/Table"
-import { DarkModeToggle } from "../../src/components/ui/darkModeToggle/DarkModeToggle"
-
+import { useQuery } from "@tanstack/react-query";
+import { Chart } from "../../src/components/Chart/Chart";
+import DateForm from "../../src/components/DateForm/DateForm";
+import Table from "../../src/components/Table/Table";
+import { DarkModeToggle } from "../../src/components/ui/darkModeToggle/DarkModeToggle";
+import ReactWordcloud from "react-wordcloud";
 export default function Home() {
+	const { data } = useQuery();
 	return (
 		<>
 			<header className="flex items-center justify-between p-4">
@@ -21,10 +23,12 @@ export default function Home() {
 						<div className="">
 							<Chart />
 						</div>
-						<div className="">wordmap</div>
+						<div className="">
+							<ReactWordcloud />
+						</div>
 					</div>
 				</div>
 			</div>
 		</>
-	)
+	);
 }
