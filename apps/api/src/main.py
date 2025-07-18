@@ -34,6 +34,7 @@ class MetricType(str, Enum):
 class CommitDeviation(BaseModel):
     sha: str
     title: str
+    author_name: str
     additions: int
     deletions: int
     total_changes: int
