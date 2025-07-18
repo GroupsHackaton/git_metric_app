@@ -2,7 +2,8 @@ name: Build & Push Backend Image
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build-and-push:
@@ -29,7 +30,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: backend/Dockerfile
+          file: apps/api/Dockerfile
           push: false
           tags: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
