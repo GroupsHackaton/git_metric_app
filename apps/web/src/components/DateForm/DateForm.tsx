@@ -1,36 +1,36 @@
-import { useEffect, useState } from "react"
-import { useForm, Controller } from "react-hook-form"
-import { addDays, format } from "date-fns"
-import DatePicker from "../DatePicker/DatePicker"
-import { useDateContext } from "../../contexts/dateContext"
+import { useEffect, useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { addDays, format } from "date-fns";
+import DatePicker from "../DatePicker/DatePicker";
+import { useDateContext } from "../../contexts/dateContext";
 
 interface FormValues {
-	startDate?: Date
-	endDate?: Date
+	startDate?: Date;
+	endDate?: Date;
 }
 
 export default function DateForm() {
 	const { control, watch } = useForm<FormValues>({
 		defaultValues: { startDate: undefined, endDate: undefined },
-	})
+	});
 
-	const dateContext = useDateContext()
+	const dateContext = useDateContext();
 
-	const [startOpen, setStartOpen] = useState(false)
-	const [endOpen, setEndOpen] = useState(false)
+	const [startOpen, setStartOpen] = useState(false);
+	const [endOpen, setEndOpen] = useState(false);
 
-	const startDate = watch("startDate")
-	const endDate = watch("endDate")
+	const startDate = watch("startDate");
+	const endDate = watch("endDate");
 
 	useEffect(() => {
 		if (startDate && endDate) {
-			if (startDate > endDate) return
+			if (startDate > endDate) return;
 			dateContext.setDates(
 				startDate ? format(startDate, "yyyy-MM-dd") : "",
 				endDate ? format(endDate, "yyyy-MM-dd") : ""
-			)
+			);
 		}
-	}, [startDate, endDate, dateContext])
+	}, [startDate, endDate]);
 
 	return (
 		<div className="w-full flex gap-4 items-center justify-center md:flex-row flex-col">
@@ -45,9 +45,9 @@ export default function DateForm() {
 							open={startOpen}
 							onOpenChange={setStartOpen}
 							onSelect={(d) => {
-								field.onChange(d)
-								setStartOpen(false)
-								setEndOpen(true)
+								field.onChange(d);
+								setStartOpen(false);
+								setEndOpen(true);
 							}}
 							selected={field.value}
 						/>
@@ -67,8 +67,8 @@ export default function DateForm() {
 							open={endOpen}
 							onOpenChange={setEndOpen}
 							onSelect={(d) => {
-								field.onChange(d)
-								setEndOpen(false)
+								field.onChange(d);
+								setEndOpen(false);
 							}}
 							disabled={
 								startDate ? { before: addDays(startDate, 1) } : undefined
@@ -78,5 +78,5 @@ export default function DateForm() {
 				/>
 			</div>
 		</div>
-	)
+	);
 }
