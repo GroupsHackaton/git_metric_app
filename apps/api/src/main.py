@@ -10,6 +10,8 @@ from pydantic import BaseModel
 import pandas as pd
 import numpy as np
 
+from fastapi.middleware.cors import CORSMiddleware
+
 # Import the service and config
 from .services.github_service import GitHubService, REPO_OWNER, REPO_NAME
 
@@ -22,6 +24,17 @@ app = FastAPI(
     description="An API for analyzing Git repository history.",
     version="1.0.0",
 )
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 github_service = GitHubService(owner=REPO_OWNER, name=REPO_NAME)
 
 # --- Models and Enums ---
