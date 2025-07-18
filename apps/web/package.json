@@ -11,6 +11,7 @@
 		"generate:client": "openapi-ts"
 	},
 	"dependencies": {
+		"@isoterik/react-word-cloud": "^1.2.0",
 		"@radix-ui/react-dropdown-menu": "^2.1.15",
 		"@radix-ui/react-popover": "^1.1.14",
 		"@radix-ui/react-slot": "^1.2.3",
@@ -25,7 +26,6 @@
 		"react-dom": "^19.1.0",
 		"react-hook-form": "^7.60.0",
 		"react-router": "^7.7.0",
-		"react-wordcloud": "^1.2.7",
 		"recharts": "2.15.4",
 		"tailwind-merge": "^3.3.1",
 		"tailwindcss": "^4.1.11"
