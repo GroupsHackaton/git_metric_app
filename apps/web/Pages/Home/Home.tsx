@@ -1,8 +1,8 @@
-import WordCloud from "@/components/WordCloud/WordCloud";
-import { Chart } from "../../src/components/Chart/Chart";
-import DateForm from "../../src/components/DateForm/DateForm";
-import Table from "../../src/components/Table/Table";
-import { DarkModeToggle } from "../../src/components/ui/darkModeToggle/DarkModeToggle";
+import WordCloud from "@/components/WordCloud/WordCloud"
+import { Chart } from "../../src/components/Chart/Chart"
+import DateForm from "../../src/components/DateForm/DateForm"
+import Table from "../../src/components/Table/Table"
+import { DarkModeToggle } from "../../src/components/ui/darkModeToggle/DarkModeToggle"
 export default function Home() {
 	return (
 		<>
@@ -28,5 +28,5 @@ export default function Home() {
 				</div>
 			</div>
 		</>
-	);
+	)
 }
