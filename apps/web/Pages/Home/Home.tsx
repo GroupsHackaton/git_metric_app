@@ -13,8 +13,8 @@ export default function Home() {
 			<div className="w-full">
 				<DateForm />
 				<hr className="my-4" />
-				<div className="flex items-center">
-					<div className="w-1/2 flex items-center border-r ">
+				<div className="flex flex-col items-center lg:flex-row gap-4">
+					<div className="w-full xl:w-1/2 flex items-center border-r ">
 						<Table />
 					</div>
 					<div className="w-1/2 flex flex-col justify-center items-center  border-l">

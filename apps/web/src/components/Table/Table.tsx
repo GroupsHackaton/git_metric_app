@@ -35,6 +35,7 @@ export default function DeviationsTable() {
 				<TableHeader>
 					<TableRow>
 						<TableHead>SHA</TableHead>
+						<TableHead>Author</TableHead>
 						<TableHead>Title</TableHead>
 						<TableHead className="text-right">Additions</TableHead>
 						<TableHead className="text-right">Deletions</TableHead>
@@ -54,6 +55,9 @@ export default function DeviationsTable() {
 								>
 									{commit.sha.slice(0, 7)}
 								</a>
+							</TableCell>
+							<TableCell className="font-mono text-sm">
+								{commit.author_name}
 							</TableCell>
 							<TableCell className="max-w-xs truncate">
 								{commit.title}
