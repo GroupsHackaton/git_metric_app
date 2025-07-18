@@ -17,8 +17,13 @@ export default function WordCloud() {
 	const words: Word[] = Object.entries(data ?? {})
 		.map(([text, value]) => ({ text, value }))
 		.slice(0, 12);
-
+	console.log(words);
 	return (
-		<ReactWordCloud words={words} width={300} height={200} fontSize={20} />
+		<ReactWordCloud
+			words={words}
+			width={300}
+			height={200}
+			fontSize={(word) => 5 + word.value * 2}
+		/>
 	);
 }
