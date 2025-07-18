@@ -19,6 +19,6 @@ export default function WordCloud() {
 		.slice(0, 12);
 
 	return (
-		<ReactWordCloud words={words} width={300} height={200} fontSize={26} />
+		<ReactWordCloud words={words} width={300} height={200} fontSize={20} />
 	);
 }
